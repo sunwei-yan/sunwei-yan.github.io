@@ -19,6 +19,7 @@
             text-align: center;
             font-size: 100px;
             margin: 0%;
+          
         }
         #cbl{
             width: 150px;
@@ -61,15 +62,68 @@ var{
    #ti{
        font-size: 20px;
 
-   }      
+   }   
+   /*按钮 */
+   button {
+    padding: 0.8em 1.8em;
+    border: 2px solid #17C3B2;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: #17C3B2;
+   }
+   
+   button::before {
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: #17C3B2;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   button:hover::before {
+    width: 105%;
+   }
+   
+   button:hover {
+    color: #111;
+   }
+   button{
+       left: 350px;
+   }
+   #th{
+       padding-left: 100px;
+   }
+   
+   
+
+   a{text-decoration:none;
+    color: #17C3B2;}
+
     </style>
 </head>
 <body>
 <h1 style="background-color: black;">
-    HELLO
+   <div id="th">HELLO
+    <button ><a href="1.html">welcome</a></button></div> 
+    <a href="1.html"></a>
 </h1>
 <div id="cbl">
-    <strong><p><a href="1.html">my first web</a> </p></strong>
+    <strong><p><a href="1.html">my first web
+    </a> </p>
+    </strong>
     <strong><p><a href="https://www.w3school.com.cn/html/index.asp">html+css教程</a> </p></strong>
     <strong><p><a href="代码.html">web代码</a> </p></strong>
     <p>暂未开发</p>
