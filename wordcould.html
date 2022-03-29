@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+    body{
+        background-color: beige;
+    }
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:80px;
+    background-color:#eeeeee;
+    height:1000px;
+    width:150px;
+    float:left;
+    padding:5px;	      
+}
+#section {
+    width:1200px;
+    height: 1000px;
+    float:left;
+    padding:10px;
+    	 	 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
+#x{text-align: left;
+font-size: 30px;
+border-style: solid;
+border-color: brown;
+width: 1300px;}
+#y{text-align: left;
+    font-size: 25px;
+    border-style: solid;
+    border-color: rgb(42, 61, 165);
+    width: 1300px;}
+h2{
+    text-align: center;
+}
+</style>
+<title>模板</title>
+</head>
+
+<body>
+
+<div id="header">
+<h1>基于python的wordcloud</h1>
+</div>
+
+<div id="nav">
+<strong>所需工具</strong><br>
+vscode<br>
+window系统<br>
+pip<br>
+wordcloud库<br>
+</div>
+
+<div id="section">
+<h2>wordcloud</h2>
+<p>
+   <pre id="x"><strong > from tkinter import W
+    import wordcloud
+    wordcloud=wordcloud.WordCloud(width=2000,height=2000,background_color='white')
+    wordcloud.generate(open('t41.txt','r').read())
+    wordcloud.to_file("1523.jpg")</strong></pre>
+    
+</p>
+<p>
+<pre id="y"><strong>import wordcloud//引入wordcloud库
+    wordcloud=wordcloud.WordCloud(width=2000,height=2000,background_color='white')//
+        1.创建一个wordcloud类
+        2.长度为2000，宽度为2000（可调整）
+        3.背景颜色为white（白色）
+    wordcloud.generate(open('t41.txt','r').read())
+        1.通过generate()函数将/t41.txt/传入，并通过wordcloud库生成wordcloud词云图
+    wordcloud.to_file("1523.jpg")
+        1.相对路径将1523.jpg保存到同一文件夹下
+</strong>
+    
+</pre>
+</p>
+</div>
+
+<div id="footer">
+页尾
+</div>
+
+</body>
+</html>
