@@ -2,178 +2,137 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W的博客</title>
-    <script>
-        alert("欢迎光临我的网站")
-    </script>
+    <title>My Achievements</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body{
-            background-image: url("newp.png");
-            background-size: cover;
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
         }
-        h1{
+
+        .header {
+            background-color: #0077c2;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .section h2 {
+            color: #0077c2;
+            margin-top: 0;
+        }
+
+        .achievements, .competitions {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .achievements li, .competitions li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .achievements li:last-child, .competitions li:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #0077c2;
+            color: #fff;
+            position: fixed;
             width: 100%;
-            height: 150px;
-            color: rgb(230, 219, 219);
-            text-align: center;
-            font-size: 100px;
-            margin: 0%;
-          
+            bottom: 0;
         }
-        #cbl{
-            width: 150px;
-            background-color: rgba(148, 156, 156, 0.781);
-            float: left;   
-            height: 1200px;;
-            }
-            p{background-color: rgb(192, 192, 192);
-              height: 50px;  
-              text-align: center;
-              size: 50px;
-              font-size: 20px;
-              padding-top: 20px;
-            }
-          #zjm{
-            text-align: center;
-              height: 1200px;
-              margin: top 0px;
-              color:antiquewhite;
-              font-size: 25px;
-            
-              
-          } 
-          h6{
-              margin-top: 0%;
-              font-size: 50px;
-              color: rgb(36, 83, 211);
-              margin: 0px;
-          } 
-var{
-    text-align: center;
-}
-   #weibu{
-       margin: 0px;
-      font-size: small;
-   
-      vertical-align: middle;
-           padding: 0px;
-      margin: 0px;
-      
-   }   
-   #ti{
-       font-size: 20px;
-
-   }   
-   /*按钮 */
-   button {
-    padding: 0.8em 1.8em;
-    border: 2px solid #17C3B2;
-    position: relative;
-    overflow: hidden;
-    background-color: transparent;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 16px;
-    transition: .3s;
-    z-index: 1;
-    font-family: inherit;
-    color: #17C3B2;
-   }
-   
-   button::before {
-    content: '';
-    width: 0;
-    height: 300%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    background: #17C3B2;
-    transition: .5s ease;
-    display: block;
-    z-index: -1;
-   }
-   
-   button:hover::before {
-    width: 105%;
-   }
-   
-   button:hover {
-    color: rgb(17, 17, 17);
-    
-   }
-   button{
-       left: 350px;
-   }
-   #th{
-       padding-left: 100px;
-   }
-   
-   
-
-   a{text-decoration:none;
-    color: #407bd3;}
-    a:hover{
-        color: #022963;
-    }
-
     </style>
 </head>
 <body>
-<h1 style="background-color: black;">
-   <div id="th">HELLO
-    <button ><a href="2.html">技术小站</a></button></div> 
-   
-</h1>
-<div id="cbl">
-    <strong><p><a href="1.html">后台,pc端勿进!</a> </p></strong>
-    <strong><p><a href="2.html">技术小站</a> </p></strong>
-    <strong><p><a href="https://www.w3school.com.cn/html/index.asp">html+css教程</a> </p></strong>
-    <strong><p><a href="代码.html">web代码</a> </p></strong>
-    <strong><p><a href="xmjj.html">项目简介</a> </p></strong>
-    <strong><p><a href="666.html">~我！打钱~</a> </p></strong>
-    <strong><p><a href="测试.pdf">网安论坛</a>
-        <a href="测试.docx">/说明</a> </p></strong>
-    <p>暂未开发</p>
-   
-</div>
-    <div id="zjm">
-        <h6>welcome</h6>
-        <strong><var id="123">
-            XHTML - HTML 的未来
-    XHTML 指可扩展超文本标记语言（Extensible HyperText Markup Language）。<br>
+    <header class="header">
+        <h1>颜孙炜</h1>
+        <p> 联系我->543477641@qq.com-<</p>
+        <p> 本-计算机科学与技术-人工智能方向</p>
+        <h1>很菜，但爱努力！</h1>
+    </header>
     
-    XHTML 1.0 是源自 W3C 的最新的 HTML 标准。它于 2000 年 1 月 26 日成为正式的推荐标准（Recommendation）。<br>
-    W3C Recommendation 意味着其规范的稳定性，同时其规范目前已成为一种 Web 标准。<br>
-    
-    XHTML 是一种使用 XML 进行重构的 HTML 4.01，并可以通过遵循一些简单的指导方针立即在现有的浏览器中投入使用。<br>
-    
-    为未来做好准备：请阅读如何将网站转化为 XHTML。<br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <strong><var>
-        “当 XML（扩展标记语言）于 1998 年 2 月被引入软件工业界时，它给整个行业带来了一场风暴。有史以来第一次，这个世界拥有了一种用来结构化文档和数据的通用且适应性强的格式，它不仅仅可以用于 WEB，而且可以被用于任何地方。”<br>
+    <div class="container">
+        <section class="section">
+            <h2>学业成绩</h2>
+            <ul class="achievements">
+                <li>算法与数据结构:98</li>
+                <li>嵌入式项目实践: 99</li>
+                <li>机器视觉: 98</li>
+                <li>嵌入式AI: 94</li>
+                <li>主修：计算机，嵌入式，人工智能</li>
+                <li>截至大三，在校期间获得5项各类奖学金和n项荣誉称号</li>
+                <!-- Add more academic achievements here -->
+            </ul>
+        </section>
 
-        ---《Designing With Web Standards Second Edition》, Jeffrey Zeldman<br>
-        <br>
-        <br>
-        <br>
-        <br>
-        </var><strong>
-            <var id="ti">该web的制作方式</var><br>
-        <var>
-
-            
-           1.简单的HTMl语言+CSS+简单的javascrip <br>
-           2.编辑器使用的vscode<br>
-           3.该网站部署在github上<br>
-        </var></strong>
+        <section class="section">
+            <h2>竞赛获奖</h2>
+            <ul class="competitions">
+                <li>集成电路创新创业大赛分赛区一等奖1/3</li>
+                <li>集成电路创新创业大赛全国三等奖1/3</li>              
+                <li>蓝桥杯省二等奖1/3</li>
+                <li>2024水下机器人竞赛三等奖1/3</li>
+                <li>2023水下机器人竞赛三等奖1/3</li>
+                <li>国创立项</li>
+                <li>.......</li>
+                <!-- Add more competition achievements here -->
+            </ul>
+        </section>
     </div>
-    <p id="weibu">联系方式：wq@543477641.gmail.com<br></p>
+    <div class="container">
+        <section class="section">
+            <h2>我做过的</h2>
+            <ul class="achievements">
+                <li>某TPU芯片的算子优化</li>
+                <li>基于flask的在线训练平台</li>
+                <li>注意力机制下的时序预测</li>
+                <li>用于外包项目交付防跑路的试用库vvvip</li>
+                <li>特色乡村的数据分析</li>
+                <li>定时爬虫分析平台</li>
+                <li>建筑安全的数据分析</li>
+                <li>使用tansform进行强化学习</li>
+                <li>绘制一系列电路板，小车，水下机器人.....</li>
+                <li>CSDN 700粉丝 并承接了一些芯片和产品的测评</li>
+                <!-- Add more academic achievements here -->
+            </ul>
+        </section>
 
+        <section class="section">
+            <h2>我想做的</h2>
+            <ul class="competitions">
+                <li>智能</li>
+                <li>机器人</li>
+                <li>智能机器人</li>
+                <!-- Add more competition achievements here -->
+            </ul>
+        </section>
+    </div>
+    <footer>
+        &copy; 2024 联系我·543477641@qq.com·
+    </footer>
 </body>
 </html>
