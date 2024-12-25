@@ -1,0 +1,115 @@
+/* 基本样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f1faff;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: #1e90ff;
+}
+
+/* 页头样式 */
+header {
+    background-color: #1e90ff;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+header .btn {
+    background-color: #fff;
+    color: #1e90ff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* 简历部分样式 */
+.resume-section {
+    padding: 40px 0;
+    background-color: white;
+    text-align: center;
+}
+
+.resume-section h2 {
+    margin-bottom: 20px;
+}
+
+/* 项目部分样式 */
+.projects-section {
+    padding: 40px 0;
+    background-color: #e6f7ff;
+}
+
+.projects-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.project-card .btn {
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.project-card .btn:hover {
+    background-color: #0066cc;
+}
+
+/* 页脚样式 */
+footer {
+    background-color: #1e90ff;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}

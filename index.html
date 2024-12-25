@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,50 +10,79 @@
             margin: 0;
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f9;
+            background-color: #f1faff;
             color: #333;
         }
 
         .header {
-            background-color: #0077c2;
+            /* 使用多张图片拼接背景 */
+            background-image: url('2.png'), url('4.png'), url('3.png');
+            background-size:contain, contain, contain;
+            background-position: left center, center center, right center;
+            background-repeat: no-repeat;
             color: #fff;
-            padding: 1rem;
+            padding: 2rem;
             text-align: center;
+            border-bottom: 5px solid #0068a4;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            font-weight: bold;
+        }
+
+        .header a:hover {
+            text-decoration: underline;
         }
 
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            max-width: 1000px;
-            margin: 2rem auto;
+            max-width: 1200px;
+            margin: 3rem auto;
             padding: 0 1rem;
         }
 
         .section {
             background: #fff;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
         }
 
         .section h2 {
             color: #0077c2;
             margin-top: 0;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
         }
 
         .achievements, .competitions {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
 
         .achievements li, .competitions li {
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
             border-bottom: 1px solid #ddd;
+            font-size: 1rem;
         }
 
         .achievements li:last-child, .competitions li:last-child {
             border-bottom: none;
+        }
+
+        .achievements li:hover, .competitions li:hover {
+            background-color: #f0f8ff;
         }
 
         footer {
@@ -65,67 +94,91 @@
             width: 100%;
             bottom: 0;
         }
-        a{
+
+        footer a {
             color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .container a {
+            color: #0077c2;
+            font-weight: bold;
+        }
+
+        .container a:hover {
+            text-decoration: underline;
+        }
+
+        /* 为可点击项设置蓝色 */
+        .clickable {
+            color: #0077c2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* 鼠标悬停时的效果 */
+        .clickable:hover {
+            text-decoration: underline;
+            color: #005ea2;
         }
     </style>
 </head>
 <body>
     <header class="header">
         <h1>sunwei-yan</h1>
-        <a href="https://blog.csdn.net/qq_61026911?type=blog">我的CSDN🔗</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://space.bilibili.com/351762392">我的blibli📺</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://github.com/sunwei-yan">我的GitHub🏆</a>
+        <div>
+            <a href="https://blog.csdn.net/qq_61026911?type=blog">我的CSDN🔗</a>
+            <a href="https://space.bilibili.com/351762392">我的Bilibili📺</a>
+            <a href="https://github.com/sunwei-yan">我的GitHub🏆</a>
+        </div>
         <p> 联系我📩543477641@qq.com📩</p>
         <p> 计算机科学与技术-人工智能方向</p>
-        <h1>很菜，但爱努力！</h1>
+        <h2>很菜，但爱努力！</h2>
     </header>
     
     <div class="container">
         <section class="section">
             <h2>学业成绩</h2>
             <ul class="achievements">
-                <li>算法与数据结构:A</li>
+                <li>算法与数据结构: A</li>
                 <li>嵌入式项目实践: A</li>
                 <li>机器视觉: A</li>
                 <li>嵌入式AI: A</li>
                 <li>主修：计算机，嵌入式，人工智能</li>
                 <li>截至大三，在校期间获得5项各类奖学金和n项荣誉称号</li>
-                <!-- Add more academic achievements here -->
             </ul>
         </section>
 
         <section class="section">
             <h2>竞赛获奖</h2>
             <ul class="competitions">
-                <li>集成电路创新创业大赛分赛区一等奖1/3</li>
-                <li>集成电路创新创业大赛全国三等奖1/3</li>              
-                <li>蓝桥杯省二等奖1/3</li>
-                <li>2024水下机器人竞赛三等奖1/3</li>
-                <li>2023水下机器人竞赛三等奖1/3</li>
+                <li>集成电路创新创业大赛分赛区一等奖 1/3</li>
+                <li>集成电路创新创业大赛全国三等奖 1/3</li>               
+                <li>蓝桥杯省二等奖 1/3</li>
+                <li>2024水下机器人竞赛三等奖 1/3</li>
+                <li>2023水下机器人竞赛三等奖 1/3</li>
                 <li>国家级大学生创新创业训练计划立项</li>
-                <li>.......</li>
-                <!-- Add more competition achievements here -->
             </ul>
         </section>
     </div>
+    
     <div class="container">
         <section class="section">
             <h2>我做过的</h2>
             <ul class="achievements">
-                <li>某TPU芯片的算子优化</li>
-                <li>基于flask的在线训练平台</li>
-                <li>注意力机制下的时序预测</li>
-                <li>用于外包项目交付防跑路的试用库vvvip</li>
+                <li><a href="AUV.html" class="clickable">某TPU芯片的算子优化</a></li>
+                <li><a href="TPU.html" class="clickable">水下机器人</a></li>
+                <li><a href="BMHUB.html" class="clickable">基于Flask的在线训练平台</a></li>
+                <li><a href="https://pypistats.org/packages/vvvip" class="clickable">用于外包项目交付防跑路的试用库vvvip</a></li>
+                <li>使用Transformers进行强化学习</li>
                 <li>特色乡村的数据分析</li>
                 <li>定时爬虫分析平台</li>
                 <li>建筑安全的数据分析</li>
-                <li>使用tansform进行强化学习</li>
-                <li>绘制一系列电路板，小车，水下机器人.....</li>
-                <li>CSDN 800粉丝 并承接了一些芯片和产品的测评</li>
-                <!-- Add more academic achievements here -->
+                <li>CSDN 1300粉丝 并承接了一些芯片和产品的测评</li>
             </ul>
         </section>
 
@@ -135,12 +188,12 @@
                 <li>智能</li>
                 <li>机器人</li>
                 <li>智能机器人</li>
-                <!-- Add more competition achievements here -->
             </ul>
         </section>
     </div>
+    
     <footer>
-        &copy; 2024 联系我·543477641@qq.com·
+        &copy; 2024 <a href="mailto:543477641@qq.com">联系我543477641@qq.com</a>
     </footer>
 </body>
 </html>

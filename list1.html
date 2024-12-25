@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的成果展示</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f1faff;
+            color: #333;
+        }
+
+        header {
+            background-color: #0077c2;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .card-content h3 {
+            color: #0077c2;
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem;
+        }
+
+        .card-content p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #0077c2;
+            color: #fff;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>我的成果展示</h1>
+        <p>展示我在不同领域的成就</p>
+    </header>
+
+    <div class="container">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=项目+1" alt="项目 1">
+            <div class="card-content">
+                <h3>项目 1</h3>
+                <p>这是第一个项目的简短介绍，涵盖了核心技术和主要成就。</p>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=项目+2" alt="项目 2">
+            <div class="card-content">
+                <h3>项目 2</h3>
+                <p>这是第二个项目的简短介绍，展示了创新性解决方案。</p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=项目+3" alt="项目 3">
+            <div class="card-content">
+                <h3>项目 3</h3>
+                <p>这是第三个项目的简短介绍，展示了对行业的影响。</p>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=项目+4" alt="项目 4">
+            <div class="card-content">
+                <h3>项目 4</h3>
+                <p>这是第四个项目的简短介绍，包含了关键技术细节。</p>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=项目+5" alt="项目 5">
+            <div class="card-content">
+                <h3>项目 5</h3>
+                <p>这是第五个项目的简短介绍，探索了新领域的潜力。</p>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=项目+6" alt="项目 6">
+            <div class="card-content">
+                <h3>项目 6</h3>
+                <p>这是第六个项目的简短介绍，具有较大的社会影响力。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 我的成果展示 | <a href="mailto:543477641@qq.com">联系我</a>
+    </footer>
+</body>
+</html>
