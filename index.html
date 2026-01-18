@@ -3,197 +3,483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Achievements</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Sunwei-yan | AI & Full Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            --accent-color: #00d2ff;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            background-color: #f1faff;
-            color: #333;
-        }
-
-        .header {
-            /* 使用多张图片拼接背景 */
-            background-image: url('2.png'), url('4.png'), url('3.png');
-            background-size:contain, contain, contain;
-            background-position: left center, center center, right center;
-            background-repeat: no-repeat;
-            color: #fff;
-            padding: 2rem;
-            text-align: center;
-            border-bottom: 5px solid #0068a4;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .header a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 0.5rem;
-            font-weight: bold;
-        }
-
-        .header a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1rem;
-        }
-
-        .section {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-        }
-
-        .section h2 {
-            color: #0077c2;
-            margin-top: 0;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .achievements, .competitions {
-            list-style-type: none;
             padding: 0;
-            margin: 0;
         }
 
-        .achievements li, .competitions li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #ddd;
-            font-size: 1rem;
+        body {
+            font-family: 'Inter', sans-serif;
+            /* 模拟原图的深海/科技背景 */
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
         }
 
-        .achievements li:last-child, .competitions li:last-child {
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 主容器 */
+        .main-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1400px;
+            height: 90vh; /* 限制高度以保持类似应用的感觉 */
+            border-radius: 24px;
+            overflow: hidden; /* 防止圆角溢出 */
+        }
+
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                height: auto;
+                overflow: visible;
+            }
+        }
+
+        /* 通用玻璃拟态类 */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--glass-shadow);
+        }
+
+        /* === 左侧边栏 === */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .profile-card {
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: url('https://api.dicebear.com/7.x/avataaars/svg?seed=sunwei') no-repeat center/cover;
+            background-color: #fff;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .user-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .user-role {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .timeline-box {
+            flex-grow: 1;
+        }
+        
+        .timeline-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 1.5rem;
+            border-left: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-color);
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-content {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        /* === 右侧主内容 === */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            height: 100%;
+            overflow-y: auto;
+            /* 隐藏滚动条但保留功能 */
+            scrollbar-width: none; 
+        }
+        
+        .content-area::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .greeting {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .greeting span {
+            color: var(--accent-color);
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        }
+
+        .quote {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        /* 模拟GitHub贡献图的装饰 */
+        .activity-grid {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            opacity: 0.8;
+        }
+        
+        .grid-box {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+        }
+
+        .grid-box.active-1 { background: #0e4429; }
+        .grid-box.active-2 { background: #006d32; }
+        .grid-box.active-3 { background: #26a641; }
+        .grid-box.active-4 { background: #39d353; box-shadow: 0 0 5px #39d353; }
+
+        /* 卡片网格 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-list {
+            list-style: none;
+        }
+
+        .project-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+
+        .project-item:last-child {
             border-bottom: none;
         }
 
-        .achievements li:hover, .competitions li:hover {
-            background-color: #f0f8ff;
+        .project-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-item:hover {
+            padding-left: 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+
+        .project-item:hover a {
+            color: var(--accent-color);
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: var(--text-muted);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-box {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
         }
 
         footer {
+            margin-top: 2rem;
             text-align: center;
-            padding: 1rem;
-            background: #0077c2;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
         }
 
-        footer a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .container a {
-            color: #0077c2;
-            font-weight: bold;
-        }
-
-        .container a:hover {
-            text-decoration: underline;
-        }
-
-        /* 为可点击项设置蓝色 */
-        .clickable {
-            color: #0077c2;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* 鼠标悬停时的效果 */
-        .clickable:hover {
-            text-decoration: underline;
-            color: #005ea2;
-        }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>sunwei-yan</h1>
-        <div>
-            <a href="https://blog.csdn.net/qq_61026911?type=blog">我的CSDN🔗</a>
-            <a href="https://space.bilibili.com/351762392">我的Bilibili📺</a>
-            <a href="https://github.com/sunwei-yan">我的GitHub🏆</a>
-        </div>
-        <p> 联系我📩543477641@qq.com📩</p>
-        <p> 计算机科学与技术-人工智能方向</p>
-        <h2>Coding changes the world!</h2>
-    </header>
-    
-    <div class="container">
-        <section class="section">
-            <h2>学业成绩</h2>
-            <ul class="achievements">
-                <li>算法与数据结构: A</li>
-                <li>嵌入式项目实践: A</li>
-                <li>机器视觉: A</li>
-                <li>嵌入式AI: A</li>
-                <li>主修：计算机，嵌入式，人工智能</li>
-                <li>截至大三，在校期间获得5项各类奖学金和n项荣誉称号</li>
-            </ul>
-        </section>
 
-        <section class="section">
-            <h2>竞赛获奖</h2>
-            <ul class="competitions">
-                <li>集成电路创新创业大赛分赛区一等奖 1/3</li>
-                <li>集成电路创新创业大赛全国三等奖 1/3</li>               
-                <li>蓝桥杯省二等奖 1/3</li>
-                <li>2024水下机器人竞赛三等奖 1/3</li>
-                <li>2023水下机器人竞赛三等奖 1/3</li>
-                <li>国家级大学生创新创业训练计划立项</li>
-            </ul>
-        </section>
-    </div>
-    
-    <div class="container">
-        <section class="section">
-            <h2>我做过的</h2>
-            <ul class="achievements">
-                <li><a href="AUV.html" class="clickable">某TPU芯片的算子优化</a></li>
-                <li><a href="TPU.html" class="clickable">水下机器人</a></li>
-                <li><a href="BMHUB.html" class="clickable">基于Flask的在线训练平台</a></li>
-                <li><a href="https://pypistats.org/packages/vvvip" class="clickable">用于外包项目交付防跑路的试用库vvvip</a></li>
-                <li>使用Transformers进行强化学习</li>
-                <li>特色乡村的数据分析</li>
-                <li>定时爬虫分析平台</li>
-                <li>建筑安全的数据分析</li>
-                <li>CSDN 1900粉丝 并承接了一些芯片和产品的测评</li>
-            </ul>
-        </section>
+    <div class="main-container">
+        
+        <aside class="sidebar glass-panel">
+            <div class="profile-card">
+                <div class="avatar"></div>
+                <h2 class="user-name">Sunwei-yan</h2>
+                <p class="user-role">Computer enthusiast& AI Developer</p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/sunwei-yan" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://blog.csdn.net/qq_61026911?type=blog" class="social-btn" title="CSDN"><i class="fas fa-code"></i></a>
+                    <a href="https://space.bilibili.com/351762392" class="social-btn" title="Bilibili"><i class="fab fa-bilibili"></i></a>
+                    <a href="mailto:543477641@qq.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
 
-        <section class="section">
-            <h2>我想做的</h2>
-            <ul class="competitions">
-                <li>智能</li>
-                <li>机器人</li>
-                <li>智能机器人</li>
-            </ul>
-        </section>
+            <div class="timeline-box">
+                <h3 class="timeline-title">Honors & Awards</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">集成电路大赛</div>
+                    <div class="timeline-content">分赛区一等奖 / 全国三等奖</div>
+                </div>
+         
+                               <div class="timeline-item">
+                    <div class="timeline-date">2023-2024</div>
+                    <div class="timeline-content">水下机器人竞赛 三等奖 (x2)</div>
+                </div>
+                 <div class="timeline-item">
+                    <div class="timeline-date">Innovation</div>
+                    <div class="timeline-content">国家级大学生创新创业训练计划立项</div>
+                </div>
+            </div>
+            
+            <div style="font-size: 0.8rem; color: #aaa; text-align: center;">
+                <i class="fas fa-map-marker-alt"></i> China
+            </div>
+        </aside>
+
+        <main class="content-area">
+            
+            <section class="hero-section glass-panel">
+                <h1 class="greeting">Hello, I'm <span>Sunwei-yan</span></h1>
+                <p style="margin-top: 0.5rem; font-size: 1.2rem;">1/3计算机硕士 -1/3嵌入式工程师 -1/3TTS研究者 </p>
+                <div class="quote">
+                    <i class="fas fa-quote-left"></i> Coding changes the world! <i class="fas fa-quote-right"></i>
+                </div>
+
+                <div class="activity-grid" id="gitGrid">
+                    </div>
+            </section>
+
+            <div class="grid-container">
+                
+                <section class="glass-panel">
+                    <h3 class="section-title"><i class="fas fa-laptop-code"></i> Projects / Works</h3>
+                    <ul class="project-list">
+                        <li class="project-item">
+                            <a href="AUV.html"><i class="fas fa-microchip"></i>集成电路TPU项目</a>
+                            <span class="tag">AI</span>
+                        </li>
+                        <li class="project-item">
+                            <a href="TPU.html"><i class="fas fa-water"></i> 水下机器人</a>
+                            <span class="tag">Robot</span>
+                        </li>
+                        <li class="project-item">
+                            <a href="BMHUB.html"><i class="fas fa-server"></i> TPU 在线训练平台Flask</a>
+                            <span class="tag">Web</span>
+                        </li>
+                        <li class="project-item">
+                            <a href="https://pypistats.org/packages/vvvip"><i class="fas fa-box-open"></i> vvvip简易项目加密库</a>
+                            <span class="tag">Python</span>
+                        </li>
+                        <li class="project-item">
+                            <a href="#"><i class="fas fa-robot"></i> Transformers TTS</a>
+                            <span class="tag">RL</span>
+                        </li>
+                        <li class="project-item">
+                            <a href="#"><i class="fas fa-spider"></i>爬虫</a>
+                            <span class="tag">Data</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="glass-panel">
+                    <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Academic & Stats</h3>
+                    
+                    <div class="stats-grid" style="margin-bottom: 1.5rem;">
+                        <div class="stat-box">
+                            <div class="stat-value">云南大学</div>
+                            <div class="stat-label">硕士</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">嵌入式/TTS</div>
+                            <div class="stat-label">计算机科学与技术</div>
+                        </div>
+                    </div>
+
+                    <ul class="project-list">
+                        <li class="project-item" style="pointer-events: none;">
+                            <span><i class="fas fa-star" style="color: gold;"></i> 校长奖学金</span>
+                        </li>
+                         <li class="project-item" style="pointer-events: none;">
+                            <span><i class="fas fa-medal" style="color: silver;"></i> 浙江省政府奖学金</span>
+                        </li>
+                         <li class="project-item" style="pointer-events: none;">
+                            <span><i class="fas fa-users"></i> CSDN 2000+ 粉丝</span>
+                        </li>
+                    </ul>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <h4 style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">INTERESTS</h4>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <span class="tag" style="background: rgba(0, 210, 255, 0.2); color: #fff;">Smart Robots</span>
+                            <span class="tag" style="background: rgba(0, 210, 255, 0.2); color: #fff;">Intelligence</span>
+                            <span class="tag" style="background: rgba(0, 210, 255, 0.2); color: #fff;">Embedded</span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <footer>
+                &copy; 2025 Sunwei-yan | 543477641@qq.com
+            </footer>
+
+        </main>
     </div>
-    
-    <footer>
-        &copy; 2025 <a href="mailto:543477641@qq.com">联系我543477641@qq.com</a>
-    </footer>
+
+    <script>
+        // 简单的脚本来生成那个类似Github的绿色格子装饰条
+        const grid = document.getElementById('gitGrid');
+        for(let i=0; i<65; i++) {
+            const div = document.createElement('div');
+            div.className = 'grid-box';
+            // 随机添加颜色深浅类名
+            const rand = Math.random();
+            if(rand > 0.8) div.classList.add('active-4');
+            else if(rand > 0.6) div.classList.add('active-3');
+            else if(rand > 0.4) div.classList.add('active-2');
+            else if(rand > 0.2) div.classList.add('active-1');
+            grid.appendChild(div);
+        }
+    </script>
 </body>
 </html>
